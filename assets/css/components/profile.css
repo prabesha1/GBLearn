@@ -236,14 +236,14 @@
 .career-title {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-xs);
+    gap: var(--spacing-sm);
 }
 
 .career-text {
     font-family: var(--font-primary);
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    color: var(--gray-700);
+    color: var(--gray-800);
     animation: slideInLeft 0.8s ease-out 0.3s both;
 }
 
@@ -258,9 +258,52 @@
 
 .career-subtitle {
     font-size: 1.05rem;
-    color: var(--gray-600);
+    color: var(--gray-700);
     font-weight: 500;
     animation: slideInRight 0.8s ease-out 0.5s both;
+}
+
+/* Pill styling for program + subtitle */
+.career-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.62), rgba(255,255,255,0.22));
+    border: 1px solid var(--glass-border-light);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.35);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: relative;
+    line-height: 1.35;
+}
+
+.career-subtitle.career-pill {
+    background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.18));
+    color: var(--gray-700);
+}
+
+/* Frosted reflection sheen */
+.career-pill::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 8px;
+    right: 8px;
+    height: 38%;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(255,255,255,0.08));
+    pointer-events: none;
+}
+
+/* Responsive tuning */
+@media (max-width: 768px) {
+    .career-pill { padding: 9px 14px; }
+    .career-text { font-size: 1.15rem; }
+    .career-subtitle { font-size: 0.98rem; }
 }
 
 .career-subtitle.frosted-text {
