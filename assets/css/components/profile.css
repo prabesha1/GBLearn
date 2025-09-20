@@ -1,0 +1,293 @@
+/* Profile Components */
+
+/* Profile content layout */
+.profile-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-xl);
+    align-items: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+/* Profile image container */
+.profile-image-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.image-wrapper {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition-slow);
+}
+
+.image-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all var(--transition-slow);
+    will-change: transform, filter;
+    animation: profileImagePulse 8s ease-in-out infinite, imageScalePulse 12s ease-in-out infinite;
+}
+
+.image-glow {
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, var(--primary-blue), var(--accent-purple), var(--accent-pink));
+    border-radius: var(--radius-full);
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.image-wrapper:hover .image-glow {
+    opacity: 1;
+}
+
+/* Subtle, slow pulse of the photo glow */
+.image-wrapper .image-glow {
+    transform-origin: center;
+    animation: subtlePulse 6s ease-in-out infinite;
+}
+
+/* Student and course badges */
+.student-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.50), rgba(255,255,255,0.25));
+    backdrop-filter: var(--glass-backdrop);
+    -webkit-backdrop-filter: var(--glass-backdrop);
+    border: 1px solid var(--glass-border-light);
+    border-radius: 9999px;
+    padding: 8px 14px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.student-id {
+    font-family: var(--font-primary);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    letter-spacing: 0.5px;
+}
+
+.student-label {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.student-icon {
+    color: var(--facebook-blue);
+    background: linear-gradient(135deg, var(--facebook-blue), var(--facebook-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.course-badge {
+    background: transparent;
+    margin-top: var(--spacing-sm);
+    position: relative;
+    transition: all var(--transition-normal);
+}
+
+.course-badge:hover {
+    transform: translateY(-2px);
+}
+
+.course-code {
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 1;
+}
+
+.course-code-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all var(--transition-normal);
+}
+
+.course-code-link:hover {
+    transform: scale(1.05);
+}
+
+.course-code-link:hover .course-code {
+    color: var(--facebook-blue);
+    text-shadow: 0 0 10px rgba(24, 119, 242, 0.3);
+}
+
+/* New pill styling for COMP 3122 */
+.course-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 9999px;
+    position: relative;
+    background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.20));
+    border: 1px solid var(--glass-border-light);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.35);
+}
+
+.course-pill i:first-child {
+    color: var(--facebook-blue);
+}
+
+.course-pill i:last-child {
+    color: var(--gray-500);
+}
+
+/* Profile information */
+.profile-info {
+    text-align: left;
+}
+
+.greeting {
+    margin-bottom: var(--spacing-sm);
+}
+
+.greeting-text {
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    font-weight: 600;
+}
+
+/* Eyebrow badge (Hello, I'm) */
+.eyebrow-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 9999px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.65), rgba(255,255,255,0.25));
+    border: 1px solid var(--glass-border-light);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    letter-spacing: 0.03em;
+}
+
+.eyebrow-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--facebook-blue), var(--facebook-blue-light));
+}
+
+.name-title {
+    margin-bottom: var(--spacing-sm);
+}
+
+.name-highlight {
+    font-family: var(--font-primary);
+    font-size: 3.75rem;
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    display: inline-block;
+    animation: bounceIn 1.2s ease-out;
+    position: relative;
+}
+
+.name-highlight.frosted-text {
+    background: linear-gradient(135deg, var(--facebook-blue), var(--facebook-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 30px rgba(24, 119, 242, 0.35);
+    filter: drop-shadow(0 8px 20px rgba(24, 119, 242, 0.25));
+}
+
+/* Shimmer underline under name */
+.name-title::after {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 58%;
+    margin-top: 10px;
+    border-radius: 9999px;
+    background: linear-gradient(90deg, rgba(24,119,242,0.0), rgba(24,119,242,0.35), rgba(175,82,222,0.35), rgba(24,119,242,0.0));
+    filter: blur(0.2px);
+}
+
+.career-title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.career-text {
+    font-family: var(--font-primary);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--gray-700);
+    animation: slideInLeft 0.8s ease-out 0.3s both;
+}
+
+.career-text.frosted-text {
+    background: linear-gradient(135deg, var(--facebook-blue), var(--facebook-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(24, 119, 242, 0.5);
+    filter: drop-shadow(0 0 10px rgba(24, 119, 242, 0.3));
+}
+
+.career-subtitle {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    font-weight: 500;
+    animation: slideInRight 0.8s ease-out 0.5s both;
+}
+
+.career-subtitle.frosted-text {
+    background: linear-gradient(135deg, var(--facebook-blue), var(--facebook-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 25px rgba(24, 119, 242, 0.4);
+    filter: drop-shadow(0 0 8px rgba(24, 119, 242, 0.2));
+}
+
+/* Responsive design for profile */
+@media (max-width: 768px) {
+    .profile-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--spacing-lg);
+    }
+    
+    .name-highlight {
+        font-size: 2.3rem;
+    }
+    
+    .image-wrapper {
+        width: 150px;
+        height: 150px;
+    }
+    .name-title::after { width: 70%; }
+    .course-pill { justify-content: center; }
+}

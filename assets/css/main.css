@@ -1,0 +1,59 @@
+/* Main CSS File - Imports all organized stylesheets */
+
+/* Base styles */
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/layout.css');
+
+/* Component styles */
+@import url('components/glass-cards.css');
+@import url('components/profile.css');
+@import url('components/social.css');
+@import url('components/skills.css');
+
+/* Animation styles */
+@import url('animations/keyframes.css');
+@import url('animations/transitions.css');
+@import url('animations/background.css');
+
+/* Additional utility classes */
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-facebook {
+    background: linear-gradient(135deg, var(--facebook-blue), var(--facebook-blue-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Focus styles for accessibility */
+.keyboard-navigation *:focus {
+    outline: 2px solid var(--primary-blue) !important;
+    outline-offset: 2px !important;
+}
+
+/* Print styles */
+@media print {
+    .bg-animation,
+    .floating-shapes,
+    .shape {
+        display: none;
+    }
+    
+    .glass-card {
+        background: white;
+        border: 1px solid #ccc;
+        box-shadow: none;
+    }
+    
+    .frosted-text {
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: black;
+    }
+}

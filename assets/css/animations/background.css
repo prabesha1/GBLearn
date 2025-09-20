@@ -1,0 +1,191 @@
+/* Background Animations */
+
+/* Animated background */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-shapes {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.shape {
+    position: absolute;
+    border-radius: var(--radius-full);
+    background: linear-gradient(45deg, rgba(0, 122, 255, 0.1), rgba(175, 82, 222, 0.1));
+    opacity: 0.3;
+    animation: float 20s infinite linear;
+    pointer-events: none;
+}
+
+.shape-1 {
+    width: 80px;
+    height: 80px;
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 120px;
+    height: 120px;
+    top: 60%;
+    right: 10%;
+    animation-delay: -5s;
+}
+
+.shape-3 {
+    width: 60px;
+    height: 60px;
+    top: 80%;
+    left: 20%;
+    animation-delay: -10s;
+}
+
+.shape-4 {
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 30%;
+    animation-delay: -15s;
+}
+
+.shape-5 {
+    width: 140px;
+    height: 140px;
+    top: 40%;
+    left: 60%;
+    animation-delay: -8s;
+}
+
+/* Home page: make bubbles more vivid and slightly brighter */
+.home-page .shape {
+    opacity: 0.45;
+    filter: saturate(130%) brightness(1.06);
+}
+
+/* Extra dynamic bubbles injected by JS */
+.home-page .dynamic-shape {
+    opacity: 0.5;
+    box-shadow: 0 0 30px rgba(24, 119, 242, 0.20), 0 0 20px rgba(175, 82, 222, 0.18) inset;
+}
+
+/* Hero section */
+.hero-section {
+    margin-top: var(--spacing-2xl);
+}
+
+/* Parallax effect for shapes */
+.parallax-shape {
+    transition: transform 0.1s ease-out;
+}
+
+/* Mouse interaction effects */
+.mouse-follow {
+    transition: transform 0.3s ease-out;
+}
+
+/* Background gradients */
+.bg-gradient-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-purple));
+}
+
+.bg-gradient-secondary {
+    background: linear-gradient(135deg, var(--accent-pink), var(--accent-orange));
+}
+
+.bg-gradient-tertiary {
+    background: linear-gradient(135deg, var(--accent-green), var(--secondary-blue));
+}
+
+/* Glass background variations */
+.bg-glass-light {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.bg-glass-medium {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+}
+
+.bg-glass-strong {
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Animated gradients */
+.animated-gradient {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Particle effects */
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    animation: particleFloat 10s infinite linear;
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Responsive background adjustments */
+@media (max-width: 768px) {
+    .shape {
+        opacity: 0.2;
+    }
+    
+    .shape-1, .shape-2, .shape-3, .shape-4, .shape-5 {
+        width: 60px;
+        height: 60px;
+    }
+}
